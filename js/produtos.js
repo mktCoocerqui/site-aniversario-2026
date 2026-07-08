@@ -1,6 +1,6 @@
 (function () {
   var CSV_URL = './assets/PRODUTOS_FORNECEDORES_CAMPANHA.csv';
-  var PAGE_SIZE = 25;
+  var PAGE_SIZE = 15;
 
   var estado = {
     todos: [],
@@ -135,9 +135,6 @@
             '<tr>' +
             '<td>' + escapeHtml(item.NOME_PRODUTO) + '</td>' +
             '<td>' + escapeHtml(item.RAZAO) + '</td>' +
-            '<td>' + escapeHtml(item.COD_ERP) + '</td>' +
-            '<td>' + badgeParaValor(item.SITUACAO) + '</td>' +
-            '<td>' + badgeParaValor(item.STATUS) + '</td>' +
             '</tr>'
           );
         })
@@ -209,46 +206,9 @@
     renderizarTabela();
   }
 
-  function ordenar(chave, manterOrdem) {
-    if (!manterOrdem) {
-      if (estado.ordemChave === chave) {
-        estado.ordemAsc = !estado.ordemAsc;
-      } else {
-        estado.ordemChave = chave;
-        estado.ordemAsc = true;
-      }
-    }
-
-    var direcao = estado.ordemAsc ? 1 : -1;
-
-    estado.filtrados.sort(function (a, b) {
-      var va = (a[chave] || '').toString();
-      var vb = (b[chave] || '').toString();
-      return va.localeCompare(vb, 'pt-BR', { numeric: true }) * direcao;
-    });
-
-    if (elTabela) {
-      elTabela.querySelectorAll('thead th').forEach(function (th) {
-        var arrow = th.querySelector('.arrow');
-        if (!arrow) return;
-        if (th.getAttribute('data-key') === chave) {
-          arrow.textContent = estado.ordemAsc ? '▲' : '▼';
-        } else {
-          arrow.textContent = '';
-        }
-      });
-    }
-  }
 
   function iniciarOrdenacao() {
     if (!elTabela) return;
-    elTabela.querySelectorAll('thead th[data-key]').forEach(function (th) {
-      th.addEventListener('click', function () {
-        ordenar(th.getAttribute('data-key'), false);
-        estado.pagina = 1;
-        renderizarTabela();
-      });
-    });
   }
 
   function carregar() {

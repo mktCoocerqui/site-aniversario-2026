@@ -785,6 +785,10 @@ table.produtos-tabela {
   .nav-toggle {
     display: block;
   }
+  #fornecedores{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 640px) {
@@ -809,3 +813,20 @@ table.produtos-tabela {
     padding: 56px 0;
   }
 }
+
+
+.prices-premios {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+.prices-premios li {
+  background-color: white;
+  color: var(--texto-escuro);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#premios .container {text-align: center;}
