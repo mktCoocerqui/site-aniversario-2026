@@ -3,7 +3,7 @@ name: Deploy FTP
 on:
   push:
     branches:
-      - main
+      - claude/anniversary-60-landing-page-6keg8c
 
 jobs:
   ftp-deploy:
