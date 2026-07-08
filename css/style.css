@@ -90,13 +90,13 @@ a {
 }
 
 .btn-outline {
-  background: transparent;
+  background: var(--texto-escuro);
   color: var(--branco);
   border: 2px solid var(--branco);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.12);
+  opacity: .9;
 }
 
 .btn-verde {
@@ -263,7 +263,7 @@ a {
   position: absolute;
   z-index: 1;
   pointer-events: none;
-  width: 130px;
+  width: 200px;
   animation: flutuar 6s ease-in-out infinite;
   opacity: 0.9;
 }
