@@ -13,7 +13,7 @@
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
@@ -41,40 +41,37 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img id="flutuante-1" class="flutuante" src="./imgs/FLUTUANTE_01.webp" alt="" onerror="this.remove()" />
-    <img id="flutuante-2" class="flutuante" src="./imgs/FLUTUANTE_02.webp" alt="" onerror="this.remove()" />
-    <img id="flutuante-3" class="flutuante" src="./imgs/FLUTUANTE_03.webp" alt="" onerror="this.remove()" />
+    <picture class="hero-banner">
+      <source media="(max-width: 720px)" srcset="./imgs/BANNER_HERO_MOBILE.webp" />
+      <img src="./imgs/BANNER_HERO_DESKTOP.webp" alt="60 anos Coocerqui - Comprou, Virou Presente - Compras premiadas, todos os dias!" onerror="this.closest('.hero').classList.add('sem-banner')" />
+    </picture>
 
-    <div class="container">
-      <div class="hero-texto">
-        <span class="hero-eyebrow">60 anos Coocerqui</span>
-        <h1 class="hero-title">
-          Comprou
-          <span class="destaque">Virou</span>
-          Presente
-        </h1>
-        <p class="hero-subtitle">Compras premiadas, todos os dias!</p>
+    <div class="hero-fallback">
+      <span class="hero-eyebrow">60 anos Coocerqui</span>
+      <h1 class="hero-title">
+        Comprou
+        <span class="destaque">Virou</span>
+        Presente
+      </h1>
+      <p class="hero-subtitle">Compras premiadas, todos os dias!</p>
+    </div>
 
-        <div class="hero-period">
-          📅 Participe de <strong>20/07</strong> a <strong>17/09/2026</strong>
-        </div>
-
-        <div class="hero-ctas">
-          <a href="#produtos" class="btn btn-amarelo">Ver produtos participantes</a>
-          <a href="./assets/regulamento60anos.pdf" target="_blank" rel="noopener" class="btn btn-outline">Regulamento completo</a>
-        </div>
+    <div class="container hero-cta-area">
+      <div class="hero-period">
+        📅 Participe de <strong>20/07</strong> a <strong>17/09/2026</strong>
       </div>
 
-      <div class="hero-visual">
-        <div class="polaroid p1"><img src="./imgs/hero-foto-1.jpg" alt="" onerror="this.closest('.polaroid').remove()" /></div>
-        <div class="polaroid p2"><img src="./imgs/hero-foto-2.jpg" alt="" onerror="this.closest('.polaroid').remove()" /></div>
-        <div class="polaroid p3"><img src="./imgs/hero-foto-3.jpg" alt="" onerror="this.closest('.polaroid').remove()" /></div>
+      <div class="hero-ctas">
+        <a href="#produtos" class="btn btn-amarelo">Ver produtos participantes</a>
+        <a href="./assets/regulamento60anos.pdf" target="_blank" rel="noopener" class="btn btn-outline">Regulamento completo</a>
       </div>
     </div>
   </section>
 
   <!-- COMO PARTICIPAR -->
   <section id="como-participar" class="faixa-branca">
+    <img class="flutuante" src="./imgs/FLUTUANTE_01.webp" alt="" onerror="this.remove()" />
+
     <div class="container">
       <h2 class="section-title">Como participar</h2>
       <p class="section-subtitle">Exclusivo para cooperados pessoa física, cadastrados e ativos no Clube do Cooperado, nas lojas físicas da Coocerqui.</p>
@@ -115,6 +112,8 @@
 
   <!-- PREMIOS -->
   <section id="premios" class="faixa-verde-escura">
+    <img class="flutuante" src="./imgs/FLUTUANTE_02.webp" alt="" onerror="this.remove()" />
+
     <div class="container">
       <h2 class="section-title">Prêmios</h2>
       <p class="section-subtitle">São 462 vales-compra distribuídos aleatoriamente durante toda a campanha, na proporção aproximada de 1 prêmio a cada 1.732 cupons emitidos.</p>
@@ -196,6 +195,8 @@
 
   <!-- FORNECEDORES -->
   <section id="fornecedores" class="faixa-verde-escura">
+    <img class="flutuante" src="./imgs/FLUTUANTE_03.webp" alt="" onerror="this.remove()" />
+
     <div class="container">
       <h2 class="section-title">Fornecedores participantes</h2>
       <p class="section-subtitle">Um agradecimento especial às marcas parceiras que tornam essa campanha possível.</p>

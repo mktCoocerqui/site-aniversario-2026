@@ -12,7 +12,7 @@
   --texto-escuro: #123018;
   --sombra: rgba(0, 0, 0, 0.25);
 
-  --font-display: "Baloo 2", "Poppins", system-ui, sans-serif;
+  --font-display: "Poppins", system-ui, sans-serif;
   --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   --container: 1180px;
@@ -63,30 +63,30 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 16px 32px;
+  padding: 14px 30px;
   border-radius: 999px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
   white-space: nowrap;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .btn-amarelo {
   background: var(--amarelo);
   color: var(--verde-mais-escuro);
-  box-shadow: 0 8px 0 var(--amarelo-escuro), 0 14px 24px var(--sombra);
 }
 
 .btn-amarelo:hover {
-  box-shadow: 0 5px 0 var(--amarelo-escuro), 0 10px 18px var(--sombra);
+  background: var(--amarelo-escuro);
 }
 
 .btn-outline {
@@ -102,7 +102,10 @@ a {
 .btn-verde {
   background: var(--verde-mais-escuro);
   color: var(--branco);
-  box-shadow: 0 8px 0 #0a2113, 0 14px 24px var(--sombra);
+}
+
+.btn-verde:hover {
+  background: #0a2113;
 }
 
 /* -------------------- Header -------------------- */
@@ -171,70 +174,66 @@ a {
 /* -------------------- Hero -------------------- */
 .hero {
   position: relative;
-  padding: 64px 0 120px;
-  background: radial-gradient(circle at 20% 20%, #2bbf35 0%, var(--verde-fundo) 55%, var(--verde-escuro) 100%);
-  overflow: hidden;
+  padding: 0;
+  background: var(--verde-fundo);
 }
 
-.hero .container {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 40px;
+.hero-banner img {
+  width: 100%;
 }
 
-.hero.sem-visual .container {
-  grid-template-columns: 1fr;
-  max-width: 760px;
+.hero-fallback {
+  display: none;
   text-align: center;
+  padding: 60px 24px 10px;
 }
 
-.hero.sem-visual .hero-visual {
+.hero.sem-banner .hero-banner {
   display: none;
 }
 
-.hero.sem-visual .hero-ctas {
-  justify-content: center;
+.hero.sem-banner .hero-fallback {
+  display: block;
 }
 
 .hero-eyebrow {
   display: inline-block;
-  font-family: var(--font-display);
   color: var(--amarelo);
+  font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 6px;
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
 }
 
 .hero-title {
-  font-family: var(--font-display);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1;
   margin: 0;
   text-transform: uppercase;
   color: var(--branco);
   font-size: clamp(2.6rem, 6vw, 4.6rem);
-  text-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
 }
 
 .hero-title .destaque {
   display: block;
   color: var(--amarelo);
-  -webkit-text-stroke: 2px var(--verde-mais-escuro);
-  text-shadow: 0 8px 0 var(--verde-mais-escuro), 0 16px 30px rgba(0, 0, 0, 0.25);
-  font-size: clamp(3.4rem, 8.5vw, 6.2rem);
-  transform: rotate(-2deg);
-  margin: 6px 0;
 }
 
 .hero-subtitle {
-  font-family: var(--font-display);
   color: var(--branco);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(1.2rem, 2.4vw, 1.6rem);
-  margin: 10px 0 28px;
+  margin: 10px 0 0;
+}
+
+.hero-cta-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 24px 48px;
+  text-align: center;
 }
 
 .hero-period {
@@ -246,8 +245,6 @@ a {
   border-radius: 999px;
   padding: 10px 22px;
   font-weight: 600;
-  margin-bottom: 28px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .hero-period strong {
@@ -257,50 +254,8 @@ a {
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
-}
-
-.hero-visual {
-  position: relative;
-  min-height: 420px;
-}
-
-.hero-visual .polaroid {
-  position: absolute;
-  width: 44%;
-  border-radius: 10px;
-  background: var(--branco);
-  padding: 10px 10px 30px;
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
-}
-
-.hero-visual .polaroid img {
-  border-radius: 4px;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  width: 100%;
-}
-
-.hero-visual .p1 {
-  top: 0;
-  right: 8%;
-  transform: rotate(6deg);
-  z-index: 3;
-}
-
-.hero-visual .p2 {
-  top: 46%;
-  left: 0;
-  transform: rotate(-8deg);
-  z-index: 2;
-}
-
-.hero-visual .p3 {
-  bottom: 0;
-  right: 18%;
-  transform: rotate(-4deg);
-  z-index: 1;
-  width: 38%;
 }
 
 /* Floating decorative elements */
@@ -308,8 +263,9 @@ a {
   position: absolute;
   z-index: 1;
   pointer-events: none;
+  width: 130px;
   animation: flutuar 6s ease-in-out infinite;
-  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.25));
+  opacity: 0.9;
 }
 
 @keyframes flutuar {
@@ -321,29 +277,34 @@ a {
   }
 }
 
-#flutuante-1 {
+#como-participar .flutuante {
   top: 6%;
-  left: 3%;
-  width: 90px;
-  animation-delay: 0s;
+  right: 4%;
 }
 
-#flutuante-2 {
-  bottom: 8%;
-  left: 8%;
-  width: 70px;
+#premios .flutuante {
+  bottom: 6%;
+  left: 4%;
   animation-delay: 1.2s;
 }
 
-#flutuante-3 {
-  top: 12%;
-  right: 2%;
-  width: 100px;
+#fornecedores .flutuante {
+  top: 8%;
+  right: 5%;
   animation-delay: 2.4s;
 }
 
-.flutuante.small {
-  width: 60px !important;
+@media (max-width: 980px) {
+  .flutuante {
+    width: 90px;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 640px) {
+  .flutuante {
+    display: none;
+  }
 }
 
 /* -------------------- Section shared -------------------- */
@@ -697,13 +658,17 @@ table.produtos-tabela {
 .fornecedores-box {
   background: var(--branco);
   border-radius: var(--radius);
-  padding: 40px;
+  padding: 30px;
   text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .fornecedores-box img {
   margin: 0 auto;
-  max-height: 160px;
+  width: 100%;
+  aspect-ratio: 1220 / 618;
+  object-fit: contain;
 }
 
 /* -------------------- Regulamento CTA -------------------- */
@@ -790,15 +755,6 @@ table.produtos-tabela {
 
 /* -------------------- Responsive -------------------- */
 @media (max-width: 980px) {
-  .hero .container {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-visual {
-    min-height: 340px;
-    order: -1;
-  }
-
   .passos {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -847,10 +803,6 @@ table.produtos-tabela {
 
   .footer-top {
     flex-direction: column;
-  }
-
-  .hero {
-    padding-bottom: 80px;
   }
 
   section {
